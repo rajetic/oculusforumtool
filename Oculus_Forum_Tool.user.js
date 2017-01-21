@@ -44,7 +44,7 @@ for(var i=0;i<elements.length;++i)
 	if(elements[i].className.search("ItemComment")!=-1) // These are replies in a thread.
 	{
 		var colour = postColours[getColour(elements[i].className)];
-		if(colour!=undefined)
+		if(colour!==undefined)
 		{
 			var borderElement = document.evaluate("./div[1]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 			var fillElement = document.evaluate("./div[1]/div[2]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -69,7 +69,7 @@ for(var i=0;i<elements.length;++i)
 	if(elements[i].className.search("ItemDiscussion")!=-1) // These are the opening posts of a thread.
 	{
 		var colour = getColour(elements[i].className);
-		if(colour!="")
+		if(colour!=="")
 		{
 			var borderElement = document.evaluate("./div[1]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 			var fillElement = document.evaluate("./div[1]/div[1]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
