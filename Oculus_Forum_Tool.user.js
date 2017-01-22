@@ -68,8 +68,8 @@ for(var i=0;i<elements.length;++i)
 {
 	if(elements[i].className.search("ItemDiscussion")!=-1) // These are the opening posts of a thread.
 	{
-		var colour = getColour(elements[i].className);
-		if(colour!=="")
+		var colour = postColours[getColour(elements[i].className)];
+		if(colour!==undefined)
 		{
 			var borderElement = document.evaluate("./div[1]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 			var fillElement = document.evaluate("./div[1]/div[1]", elements[i], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -77,7 +77,7 @@ for(var i=0;i<elements.length;++i)
 			borderElement.style.borderTopColor = colour;
 			borderElement.style.borderLeftColor = colour;
 			borderElement.style.borderRightColor = colour;
-			fillElement.style="background-color: "+colour;
+			fillElement.style.backgroundColor = colour;
 		}
 	}
 }
