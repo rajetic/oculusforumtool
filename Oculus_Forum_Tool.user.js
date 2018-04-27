@@ -2,7 +2,7 @@
 // @name        Oculus Forum Tool
 // @namespace   Kojack
 // @description Oculus Forum Tool
-// @include     https://forums.oculus.com/*
+// @include     https://forums.oculusvr.com/*
 // @version     1
 // @grant       none
 // ==/UserScript==
@@ -15,7 +15,7 @@
 
 
 var elements;
-var postColours   = {admin:"#0000c0", mod:"#b05000", mine:"#00a0ff", banned:"#ff80ff"};
+var postColours   = {admin:"#0000c0", mod:"#b05000", mine:"#00a0ff", banned:"#ffff00"};
 
 function getColour(cn)
 {
@@ -81,3 +81,25 @@ for(var i=0;i<elements.length;++i)
 		}
 	}
 }
+
+elements=document.getElementsByClassName('LastCommentDate');
+for (var i = 0; i < elements.length; ++i)
+{
+    elements[i].style.display='flex';
+}
+elements=document.getElementsByClassName('Meta-Discussion');
+for (var i = 0; i < elements.length; ++i)
+{
+    elements[i].style.display='flex';
+}
+elements=document.getElementsByClassName('DiscussionScore');
+for (var i = 0; i < elements.length; ++i)
+{
+    elements[i].style.flex='1 0 auto';
+}
+elements=document.getElementsByClassName('emoji');
+for (var i = 0; i < elements.length; ++i)
+{
+    elements[i].style.height='20px';
+}
+
