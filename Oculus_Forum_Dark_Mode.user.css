@@ -17,381 +17,410 @@
 
 @document domain("forums.oculusvr.com")
 {
-:root
-{
-    --moderator:        #cc6510;
-    --staff:            #305bff;
-    --user:             #ffffff;
-    --moderator_read:   #733909;
-    --staff_read:       #1f3fb5;
-    --user_read:        #707070;
-    --background1:      #000000;
-    --background2:      #202020;
-    --background3:      #303030;
-    --text:             #ffffff;
-    --textheading:      #ffffff;
-    --boxes:            #d0d0d0;
-}
+	:root
+	{
+		--moderator:        #cc6510;
+		--staff:            #305bff;
+		--user:             #ffffff;
+		--moderator_read:   #733909;
+		--staff_read:       #1f3fb5;
+		--user_read:        #707070;
+		--background1:      #000000;
+		--background2:      #202020;
+		--background3:      #303030;
+		--text:             #ffffff;
+		--textheading:      #ffffff;
+		--boxes:            #d0d0d0;
+		--announcement:     #133534;
+	}
 
-* {
-    color: var(--text) !important; 
-    background-color: var(--background1) !important; 
-}
+	* 
+	{
+		color: var(--text) !important; 
+		background-color: var(--background1) !important; 
+	}
 
-div.c_CommunityToggle * {
-    background-color: var(--background2) !important; 
-}
+	div.c_CommunityToggle * 
+	{
+		background-color: var(--background2) !important; 
+	}
 
-div.c_CommunityToggle li * {
-    color: var(--background2) !important; 
-    background-color: var(--boxes) !important; 
-    transition: none !important;
-}
+	div.c_CommunityToggle li * 
+	{
+		color: var(--background2) !important; 
+		background-color: var(--boxes) !important; 
+		transition: none !important;
+	}
 
-ul.Discussions * {
-    background-color: var(--background2) !important;
-}
+	ul.Discussions * 
+	{
+		background-color: var(--background2) !important;
+	}
 
-/* ---------------------------------------------------------------------------*/
-/* Thread list Rank */
+	ul.Discussions li.Announcement, ul.Discussions li.Announcement *
+	{
+	   background-color: var(--announcement) !important;
+	}
 
-li.ItemDiscussion.New div.Title a { color: var(--user) !important; font-weight:normal !important; }
-li.ItemDiscussion.Unread div.Title a { color: var(--user) !important; font-weight:normal !important;}
-li.ItemDiscussion.Read div.Title a { color: var(--user_read) !important; font-weight:normal !important;}
+	/* ---------------------------------------------------------------------------*/
+	/* Thread list Rank */
 
-li.Rank-Mod.New div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
-li.Rank-Mod.Unread div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
-li.Rank-Mod.Read div.Title a { color: var(--moderator_read) !important; font-weight:normal !important;}
-li.Rank-Mod span.DiscussionAuthor a { color: var(--moderator) !important; }
+	li.ItemDiscussion.New div.Title a { color: var(--user) !important; font-weight:normal !important; }
+	li.ItemDiscussion.Unread div.Title a { color: var(--user) !important; font-weight:normal !important;}
+	li.ItemDiscussion.Read div.Title a { color: var(--user_read) !important; font-weight:normal !important;}
 
-li.Rank-Admin.New div.Title a { color: var(--staff) !important; font-weight:normal !important;}
-li.Rank-Admin.Unread div.Title a { color: var(--staff) !important; font-weight:normal !important;}
-li.Rank-Admin.Read div.Title a { color: var(--staff_read) !important; font-weight:normal !important;}
-li.Rank-Admin span.DiscussionAuthor a { color: var(--staff) !important; }
+	li.Rank-Mod.New div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
+	li.Rank-Mod.Unread div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
+	li.Rank-Mod.Read div.Title a { color: var(--moderator_read) !important; font-weight:normal !important;}
+	li.Rank-Mod span.DiscussionAuthor a { color: var(--moderator) !important; }
 
-/*Annoying fix for OculusSupport*/
-li.ItemDiscussion.New a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
-li.ItemDiscussion.Unread a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
-li.ItemDiscussion.Read a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff_read) !important; }
-li.ItemDiscussion a[title$="OculusSupport"] ~ div.ItemContent span.DiscussionAuthor a { color: var(--staff) !important; }
+	li.Rank-Admin.New div.Title a { color: var(--staff) !important; font-weight:normal !important;}
+	li.Rank-Admin.Unread div.Title a { color: var(--staff) !important; font-weight:normal !important;}
+	li.Rank-Admin.Read div.Title a { color: var(--staff_read) !important; font-weight:normal !important;}
+	li.Rank-Admin span.DiscussionAuthor a { color: var(--staff) !important; }
 
-/* New post box */
-strong.HasNew, strong.HasNew span
-{
-    color: var(--background1) !important;
-    background-color: var(--boxes) !important;
-}
+	/*Annoying fix for OculusSupport*/
+	li.ItemDiscussion.New a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
+	li.ItemDiscussion.Unread a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
+	li.ItemDiscussion.Read a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff_read) !important; }
+	li.ItemDiscussion a[title$="OculusSupport"] ~ div.ItemContent span.DiscussionAuthor a { color: var(--staff) !important; }
 
-/* Options and star */
-li.ItemDiscussion span.Options *{
-    color: var(--background1) !important;
-    background-color: var(--boxes) !important;
-}
-li.ItemDiscussion span.Options a.Bookmarked{
-    background-color: var(--background2) !important;
-}
+	/* Options and star */
+	li.ItemDiscussion span.Options *
+	{
+		color: var(--background1) !important;
+		background-color: var(--boxes) !important;
+	}
+	li.ItemDiscussion span.Options a.Bookmarked
+	{
+		background-color: var(--background2) !important;
+	}
 
-/* ---------------------------------------------------------------------------*/
-/* Page select */
-div.Pager * { 
-    color: var(--text) !important; 
-    background-color: var(--background2) !important; 
-}
-div.Pager a.Highlight {
-    color: var(--background2) !important; 
-    background-color: var(--text) !important; 
-}
+	/* ---------------------------------------------------------------------------*/
+	/* Page select */
+	div.Pager * 
+	{ 
+		color: var(--text) !important; 
+		background-color: var(--background2) !important; 
+	}
+	div.Pager a.Highlight 
+	{
+		color: var(--background2) !important; 
+		background-color: var(--text) !important; 
+	}
 
-/* Search Box */
-div.SearchBox form * {
-    color: var(--boxes) !important; 
-    background-color: var(--background2) !important;
-    border-top-color: var(--background2) !important;
-    border-bottom-color: var(--background2) !important;
-    border-left-color: var(--background2) !important;
-    border-right-color: var(--background2) !important;
-}
-
-
-/* New Discussion Combobox */
-div.BoxNewDiscussion * {
-    color: var(--text) !important; 
-    background-color: var(--background2) !important; 
-}
-/* can't replace text color, other style sheet has important tag */
-div.BoxNewDiscussion ul *{
-    color: var(--text) !important; 
-    background-color: var(--boxes) !important; 
-}
+	/* Search Box */
+	div.SearchBox form * 
+	{
+		color: var(--boxes) !important; 
+		background-color: var(--background2) !important;
+		border-top-color: var(--background2) !important;
+		border-bottom-color: var(--background2) !important;
+		border-left-color: var(--background2) !important;
+		border-right-color: var(--background2) !important;
+	}
 
 
-
-
-
-/* ---------------------------------------------------------------------------*/
-/* Thread view                                                                */
-/* ---------------------------------------------------------------------------*/
-/* First post in a thread */
-div.Rank-Mod.ItemDiscussion {
-    border-left-color:   var(--moderator) !important;
-    border-right-color:  var(--moderator) !important;
-    border-top-color:    var(--moderator) !important;
-    border-bottom-color: var(--moderator) !important;
-}
-
-div.Rank-Mod.ItemDiscussion div.DiscussionHeader {
-    background-color: var(--moderator) !important;
-}
-
-div.Rank-Admin.ItemDiscussion {
-    border-left-color:   var(--staff) !important;
-    border-right-color:  var(--staff) !important;
-    border-top-color:    var(--staff) !important;
-    border-bottom-color: var(--staff) !important;
-}
-
-div.Rank-Admin.ItemDiscussion div.DiscussionHeader {
-    background-color: var(--staff) !important;
-}
-
-/* ---------------------------------------------------------------------------*/
-/* Comments in a thread */
-li.ItemComment {
-    border-left-color:   var(--background3) !important;
-    border-right-color:  var(--background3) !important;
-    border-top-color:    var(--background3) !important;
-    border-bottom-color: var(--background3) !important;
-}
-
-li.ItemComment div.CommentHeader, li.ItemComment div.CommentHeader *, li.ItemComment div.Options * {
-    background-color: var(--background3) !important;
-}
-
-li.Rank-Mod.ItemComment {
-    border-left-color:   var(--moderator) !important;
-    border-right-color:  var(--moderator) !important;
-    border-top-color:    var(--moderator) !important;
-    border-bottom-color: var(--moderator) !important;
-}
-
-li.Rank-Mod div.CommentHeader, li.Rank-Mod div.CommentHeader *, li.Rank-Mod div.Options * {
-    background-color: var(--moderator) !important;
-}
-
-li.Rank-Admin.ItemComment {
-    border-left-color:   var(--staff) !important;
-    border-right-color:  var(--staff) !important;
-    border-top-color:    var(--staff) !important;
-    border-bottom-color: var(--staff) !important;
-}
-
-li.Rank-Admin div.CommentHeader, li.Rank-Admin div.CommentHeader *, li.Rank-Admin div.Options * {
-    background-color: var(--staff) !important;
-}
-
-div.Message img.emoji {
-    height: 20px !important;
-}
-
-/* ---------------------------------------------------------------------------*/
-/* Main Page                                                                  */
-/* ---------------------------------------------------------------------------*/
-
-/* Top nav bar */
-div.c_Frame-header nav a.Selected {
-    background-color: var(--background3) !important;
-}
-
-/* ---------------------------------------------------------------------------*/
-/* Thread info */
-span.MItem 
-{
-        color: var(--text) !important;
-}
-span.MItem.LastCommentBy a
-{
-        color: white !important;
-}
-/* Tags */
-span.MItem.Category a
-{
-        color: black !important;
-    background-color: #d0d0d0 !important;
-}
-/* ---------------------------------------------------------------------------*/
-
-/* Side panel Filter */
-ul.FilterMenu *
-{
-    background-color: var(--background1) !important;
-    color: #d0d0d0 !important;
-}
-ul.FilterMenu li.Active *
-{
-    color: var(--background1) !important;
-    background-color: #d0d0d0 !important;
-}
-ul.FilterMenu span.Aside *
-{
-    background-color: var(--boxes) !important;
-    color: var(--background1) !important;
-}
-
-
-/* Side panel Categories */
-ul.PanelInfo *
-{
-    background-color: var(--background2) !important;
-}
-ul.PanelInfo li a
-{
-    color: var(--text) !important;
-}
-ul.PanelInfo span.Aside *
-{
-    background-color: var(--boxes) !important;
-    color: var(--background1) !important;
-}
-ul.PanelInfo li.Active, ul.PanelInfo li.Active *
-{
-    color: var(--background2) !important;
-    background-color: var(--boxes) !important;
-}
-ul.PanelInfo li.Active span.Aside *
-{
-    background-color: var(--background2) !important;
-    color: var(--text) !important;
-}
-
-/* Side panel Tags */
-div.Box.Tags li * {
-    color: var(--text) !important;
-    background-color: var(--background2) !important;
-}
-div.Box.Tags li span {
-    color: var(--background1) !important;
-    background-color: var(--boxes) !important;
-}
+	/* New Discussion Combobox */
+	div.BoxNewDiscussion * 
+	{
+		color: var(--text) !important; 
+		background-color: var(--background2) !important; 
+	}
+	/* can't replace text color, other style sheet has important tag */
+	div.BoxNewDiscussion ul *
+	{
+		color: var(--text) !important; 
+		background-color: var(--boxes) !important; 
+	}
 
 
 
 
 
+	/* ---------------------------------------------------------------------------*/
+	/* Thread view                                                                */
+	/* ---------------------------------------------------------------------------*/
+	/* First post in a thread */
+	div.Rank-Mod.ItemDiscussion 
+	{
+		border-left-color:   var(--moderator) !important;
+		border-right-color:  var(--moderator) !important;
+		border-top-color:    var(--moderator) !important;
+		border-bottom-color: var(--moderator) !important;
+	}
 
-div.Item-Body 
-{
-    color: #e0e0e0 !important;
-}
+	div.Rank-Mod.ItemDiscussion div.DiscussionHeader 
+	{
+		background-color: var(--moderator) !important;
+	}
 
-div.Signature, div.Signature *
-{
-    color: #606060 !important;
-    border-top-color: #606060 !important;
-}
-div.Item-Body a
-{
-    color: #10d0d0 !important;
-}
-div.Signature a
-{
-    color: #0C9999 !important;
-    border-top-color: #606060 !important;
-}
-/* LOL count */
-div.Item-Body a.ReactButton-LOL span.Count
-{
-    background-color: #f0f000 !important;
-    color: black !important;
-}
-/* Like count */
-div.Item-Body a.ReactButton-Like span.Count
-{
-    background-color: #f0f000 !important;
-    color: black !important;
-}
-/* Awesome count */
-div.Item-Body a.ReactButton-Awesome span.Count
-{
-    background-color: #f0f000 !important;
-    color: black !important;
-}
-/* Flag */
-div.Item-Body a.ReactButton-Flag *
-{
-    color: #f00000 !important;
-}
-/* Quote */
-div.Item-Body a.Quote, div.Item-Body a.Quote *
-{
-    color: var(--text) !important;
-}
-/* Log */
-div.Item-Body a.ReactButton-Log
-{
-    color: var(--text) !important;
-}
+	div.Rank-Admin.ItemDiscussion 
+	{
+		border-left-color:   var(--staff) !important;
+		border-right-color:  var(--staff) !important;
+		border-top-color:    var(--staff) !important;
+		border-bottom-color: var(--staff) !important;
+	}
+
+	div.Rank-Admin.ItemDiscussion div.DiscussionHeader 
+	{
+		background-color: var(--staff) !important;
+	}
+
+	/* ---------------------------------------------------------------------------*/
+	/* Comments in a thread */
+	li.ItemComment 
+	{
+		border-left-color:   var(--background3) !important;
+		border-right-color:  var(--background3) !important;
+		border-top-color:    var(--background3) !important;
+		border-bottom-color: var(--background3) !important;
+	}
+
+	li.ItemComment div.CommentHeader, li.ItemComment div.CommentHeader *, li.ItemComment div.Options * 
+	{
+		background-color: var(--background3) !important;
+	}
+
+	li.Rank-Mod.ItemComment 
+	{
+		border-left-color:   var(--moderator) !important;
+		border-right-color:  var(--moderator) !important;
+		border-top-color:    var(--moderator) !important;
+		border-bottom-color: var(--moderator) !important;
+	}
+
+	li.Rank-Mod div.CommentHeader, li.Rank-Mod div.CommentHeader *, li.Rank-Mod div.Options * 
+	{
+		background-color: var(--moderator) !important;
+	}
+
+	li.Rank-Admin.ItemComment 
+	{
+		border-left-color:   var(--staff) !important;
+		border-right-color:  var(--staff) !important;
+		border-top-color:    var(--staff) !important;
+		border-bottom-color: var(--staff) !important;
+	}
+
+	li.Rank-Admin div.CommentHeader, li.Rank-Admin div.CommentHeader *, li.Rank-Admin div.Options * 
+	{
+		background-color: var(--staff) !important;
+	}
+
+	div.Message img.emoji 
+	{
+		height: 20px !important;
+	}
+
+	/* ---------------------------------------------------------------------------*/
+	/* Main Page                                                                  */
+	/* ---------------------------------------------------------------------------*/
+
+	/* Top nav bar */
+	div.c_Frame-header nav a.Selected 
+	{
+		background-color: var(--background3) !important;
+	}
+
+	/* ---------------------------------------------------------------------------*/
+	/* Thread info */
+	span.MItem 
+	{
+		color: var(--text) !important;
+	}
+	span.MItem.LastCommentBy a
+	{
+		color: white !important;
+	}
+
+	/* Tags */
+	span.MItem.Category a
+	{
+		color: black !important;
+		background-color: var(--boxes) !important;
+	}
+		
+	/* New post box */
+	strong.HasNew, strong.HasNew *
+	{
+		color: black !important;
+		background-color: var(--boxes) !important;
+	}
+	/* ---------------------------------------------------------------------------*/
+
+	/* Side panel Filter */
+	ul.FilterMenu *
+	{
+		background-color: var(--background1) !important;
+		color: var(--boxes) !important;
+	}
+	ul.FilterMenu li.Active *
+	{
+		color: var(--background1) !important;
+		background-color: var(--boxes) !important;
+	}
+	ul.FilterMenu span.Aside *
+	{
+		background-color: var(--boxes) !important;
+		color: var(--background1) !important;
+	}
 
 
-/* Quote boxes */
-blockquote, blockquote *
-{
-    background-color: #102030 !important;
-}
-blockquote blockquote, blockquote blockquote *
-{
-    background-color: #1A334C !important;
-}
-blockquote blockquote blockquote, blockquote blockquote blockquote *
-{
-    background-color: #244668 !important;
-}
+	/* Side panel Categories */
+	ul.PanelInfo *
+	{
+		background-color: var(--background2) !important;
+	}
+	ul.PanelInfo li a
+	{
+		color: var(--text) !important;
+	}
+	ul.PanelInfo span.Aside *
+	{
+		background-color: var(--boxes) !important;
+		color: var(--background1) !important;
+	}
+	ul.PanelInfo li.Active, ul.PanelInfo li.Active *
+	{
+		color: var(--background2) !important;
+		background-color: var(--boxes) !important;
+	}
+	ul.PanelInfo li.Active span.Aside *
+	{
+		background-color: var(--background2) !important;
+		color: var(--text) !important;
+	}
 
-div.Quote {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #1A334C !important;
-    background-color: #102030 !important;
-}
+	/* Side panel Tags */
+	div.Box.Tags li * 
+	{
+		color: var(--text) !important;
+		background-color: var(--background2) !important;
+	}
+	div.Box.Tags li span {
+		color: var(--background1) !important;
+		background-color: var(--boxes) !important;
+	}
 
-pre.CodeBlock
-{
-    border-style: solid;
-    border-width: 1px;
-    border-color: #1A334C !important;
-    background-color: #102030 !important;
-}
-pre.CodeBlock *
-{
-    background-color: #102030 !important;
-}
-div.Spoiler
-{
-    background-color: #402030 !important;
-}
 
-h1 
-{
-    color: var(--textheading) !important;
-}
 
-/* Community Combobox */
-aaadiv.c_CommunityToggle * {
-    color: #ff0000 !important; 
-    background-color: var(--boxes) !important;
-}
+	div.Item-Body 
+	{
+		color: #e0e0e0 !important;
+	}
 
-/*Avatars*/
-img.ProfilePhotoMedium
-{
-    width: 60px !important;   
-    height: 60px !important;   
-    z-index: 1 !important;
-    position: relative;
-}
+	div.Signature, div.Signature *
+	{
+		color: #606060 !important;
+		border-top-color: #606060 !important;
+	}
+	div.Item-Body a
+	{
+		color: #10d0d0 !important;
+	}
+	div.Signature a
+	{
+		color: #0C9999 !important;
+		border-top-color: #606060 !important;
+	}
+	/* LOL count */
+	div.Item-Body a.ReactButton-LOL span.Count
+	{
+		background-color: #f0f000 !important;
+		color: black !important;
+	}
+	/* Like count */
+	div.Item-Body a.ReactButton-Like span.Count
+	{
+		background-color: #f0f000 !important;
+		color: black !important;
+	}
+	/* Awesome count */
+	div.Item-Body a.ReactButton-Awesome span.Count
+	{
+		background-color: #f0f000 !important;
+		color: black !important;
+	}
+	/* Flag */
+	div.Item-Body a.ReactButton-Flag *
+	{
+		color: #f00000 !important;
+	}
+	/* Quote */
+	div.Item-Body a.Quote, div.Item-Body a.Quote *
+	{
+		color: var(--text) !important;
+	}
+	/* Log */
+	div.Item-Body a.ReactButton-Log
+	{
+		color: var(--text) !important;
+	}
 
-iframe
-{
-    background-color: var(--user_read) !important;
-}
 
+	/* Quote boxes */
+	blockquote, blockquote *
+	{
+		background-color: #102030 !important;
+	}
+	blockquote blockquote, blockquote blockquote *
+	{
+		background-color: #1A334C !important;
+	}
+	blockquote blockquote blockquote, blockquote blockquote blockquote *
+	{
+		background-color: #244668 !important;
+	}
+
+	div.Quote 
+	{
+		border-style: solid;
+		border-width: 1px;
+		border-color: #1A334C !important;
+		background-color: #102030 !important;
+	}
+
+	pre.CodeBlock
+	{
+		border-style: solid;
+		border-width: 1px;
+		border-color: #1A334C !important;
+		background-color: #102030 !important;
+	}
+	pre.CodeBlock *
+	{
+		background-color: #102030 !important;
+	}
+	div.Spoiler
+	{
+		background-color: #402030 !important;
+	}
+
+	h1 
+	{
+		color: var(--textheading) !important;
+	}
+
+	/* Community Combobox */
+	aaadiv.c_CommunityToggle * 
+	{
+		color: #ff0000 !important; 
+		background-color: var(--boxes) !important;
+	}
+
+	/* Avatars */
+	img.ProfilePhotoMedium
+	{
+		width: 60px !important;   
+		height: 60px !important;   
+		z-index: 1 !important;
+		position: relative;
+	}
+
+	iframe
+	{
+		background-color: var(--user_read) !important;
+	}
 }
