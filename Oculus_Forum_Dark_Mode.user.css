@@ -5,7 +5,7 @@
 @homepageURL https://github.com/rajetic/oculusforumtool
 @updateURL   https://github.com/rajetic/oculusforumtool/raw/master/Oculus_Forum_Dark_Mode.user.css
 @license     MIT
-@author      Kojack (rajetic@gmail.com)
+@author      Kojack <rajetic@gmail.com>
 @preprocessor uso
 ==/UserStyle== */
 
@@ -15,6 +15,8 @@
    Oculus Forum Dark Mode is released under the MIT License  
    https://opensource.org/licenses/MIT */
 
+@document domain("forums.oculusvr.com")
+{
 :root
 {
     --moderator:        #cc6510;
@@ -392,4 +394,4 @@ iframe
     background-color: var(--user_read) !important;
 }
 
-
+}
