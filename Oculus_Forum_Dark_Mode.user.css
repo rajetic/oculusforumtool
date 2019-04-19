@@ -383,8 +383,8 @@ aaadiv.c_CommunityToggle * {
 /*Avatars*/
 img.ProfilePhotoMedium
 {
-    width: 80px !important;   
-    height: 80px !important;   
+    width: 60px !important;   
+    height: 60px !important;   
     z-index: 1 !important;
     position: relative;
 }
