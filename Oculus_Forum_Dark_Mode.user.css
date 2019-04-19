@@ -28,6 +28,7 @@
 		--background1:      #000000;
 		--background2:      #202020;
 		--background3:      #303030;
+        --background4:      #707070;
 		--text:             #ffffff;
 		--textheading:      #ffffff;
 		--boxes:            #d0d0d0;
@@ -142,7 +143,19 @@
 	/* Thread view                                                                */
 	/* ---------------------------------------------------------------------------*/
 	/* First post in a thread */
-	div.Rank-Mod.ItemDiscussion 
+	div.ItemDiscussion 
+	{
+		border-left-color:   var(--background3) !important;
+		border-right-color:  var(--background3) !important;
+		border-top-color:    var(--background3) !important;
+		border-bottom-color: var(--background3) !important;
+	}
+    div.ItemDiscussion div.DiscussionHeader, div.ItemDiscussion div.DiscussionHeader *
+	{
+		background-color: var(--background3) !important;
+	}
+    
+    div.Rank-Mod.ItemDiscussion 
 	{
 		border-left-color:   var(--moderator) !important;
 		border-right-color:  var(--moderator) !important;
@@ -150,7 +163,7 @@
 		border-bottom-color: var(--moderator) !important;
 	}
 
-	div.Rank-Mod.ItemDiscussion div.DiscussionHeader 
+	div.Rank-Mod.ItemDiscussion div.DiscussionHeader, div.Rank-Mod.ItemDiscussion div.DiscussionHeader *:not(a), div.Rank-Mod.ItemDiscussion div.DiscussionHeader a.Username
 	{
 		background-color: var(--moderator) !important;
 	}
@@ -163,7 +176,7 @@
 		border-bottom-color: var(--staff) !important;
 	}
 
-	div.Rank-Admin.ItemDiscussion div.DiscussionHeader 
+   	div.Rank-Admin.ItemDiscussion div.DiscussionHeader, div.Rank-Admin.ItemDiscussion div.DiscussionHeader *:not(a), div.Rank-Admin.ItemDiscussion div.DiscussionHeader a.Username
 	{
 		background-color: var(--staff) !important;
 	}
