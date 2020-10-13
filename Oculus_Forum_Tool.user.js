@@ -3,7 +3,7 @@
 // @namespace   Kojack
 // @description Oculus Forum Tool
 // @include     https://forums.oculusvr.com/*
-// @version     1.3
+// @version     1.4
 // @grant       none
 // ==/UserScript==
 
@@ -106,3 +106,15 @@ for (var i = 0; i < elements.length; ++i)
 {
     elements[i].style.height='20px';
 }
+
+elements = document.getElementsByClassName("MeMenu");
+var gearbutton = document.evaluate("./span[4]/a", elements[0], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+var spamqueue = document.evaluate("./span[4]/ul/li[4]/a/span", elements[0], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+var testalert = document.createElement("SPAN");
+if(spamqueue!=null)
+{
+	testalert.className = "Alert";
+	testalert.innerText = spamqueue.innerText;
+	gearbutton.appendChild(testalert);  
+}
+
