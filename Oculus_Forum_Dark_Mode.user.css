@@ -1,439 +1,635 @@
 /* ==UserStyle==
-@name        Oculus Forum Dark Mode
-@namespace   OculusForum
-@version     0.1.0
+@name           Oculus Forum Dark Mode
+@namespace      Kojack
+@version        0.2.0
+@description    Dark theme for the Khoros based Oculus community forums.
 @homepageURL https://github.com/rajetic/oculusforumtool
 @updateURL   https://github.com/rajetic/oculusforumtool/raw/master/Oculus_Forum_Dark_Mode.user.css
-@license     MIT
-@author      Kojack <rajetic@gmail.com>
-@preprocessor uso
+@author         Kojack
+@preprocessor stylus
+@var checkbox showPreview "Show Post Preview" 1
+@var checkbox stretchToWindow "Use full page width" 0
+@var checkbox showSignatures "Show signature blocks" 1
+
+
 ==/UserStyle== */
 
-/* Oculus Forum Dark Mode - Provides colour coding of posts on the Oculus forum
-   Copyright (C) 2019 Kojack (rajetic@gmail.com)
-
-   Oculus Forum Dark Mode is released under the MIT License  
-   https://opensource.org/licenses/MIT */
-
-@document domain("forums.oculusvr.com")
+@-moz-document domain("forums.oculusvr.com") 
 {
-	:root
-	{
-		--moderator:        #cc6510;
-		--staff:            #305bff;
-		--user:             #ffffff;
-		--moderator_read:   #733909;
-		--staff_read:       #1f3fb5;
-		--user_read:        #707070;
-		--background1:      #000000;
-		--background2:      #202020;
-		--background3:      #303030;
-        --background4:      #707070;
-		--text:             #ffffff;
-		--textheading:      #ffffff;
-		--boxes:            #d0d0d0;
-		--announcement:     #133534;
-	}
+    :root
+    {
+        --moderator:        #ff8030;
+        --staff:            #1D80ff;
+        --user:             #ffffff;
+        --moderator_read:   #733909;
+        --staff_read:       #1f3fb5;
+        --user_read:        #707070;
+        --background1:      #000000;
+        --background2:      #000000;
+        --background3:      #2c2e30;
+        --background4:      #505050;
+        --text:             #eeeeee;
+        --textMid:          #808080;
+        --textLight:        #b0b0b0;
+        --textheading:      #ffffff;
+        --lastPostTime:     #dddddd;
+        --boxes:            #d0d0d0;
+        --announcement:     #133534;
+        --listBorders:      #000000;
+        --postCount:        #eeeeee;
+        --test:             #00ff00;
+        --boldUser:         #ffffff;
+        --normalUser:       #c0c0c0;
+        --unreadThread:     #ffffff;
+        --readThread:       #b0b0b0;
+        --threadStats:      #80d0ff;
+        --kudosCount:       #80d0ff;
+        --button:           #1D65C1;
+        --shareButton:      #505050;
+        --pinnedThread:     #303060;
+        --links:            #80d0ff;
+        --blueButton:       #1D65C1;
+        --signature:        #a0a0a0;
+    }
 
-	* 
-	{
-		color: var(--text) !important; 
-		background-color: var(--background1) !important; 
-	}
+    body
+    {
+        color: var(--text) !important; 
+        background-color: var(--background2) !important; 
+    }
 
-	div.c_CommunityToggle * 
-	{
-		background-color: var(--background2) !important; 
-	}
+    /* div.header-hero-wrapper
+    {
+        background-color: rgba(255,0,0,0.1) !important; 
+    }
+    */
 
-	div.c_CommunityToggle li * 
-	{
-		color: var(--background2) !important; 
-		background-color: var(--boxes) !important; 
-		transition: none !important;
-	}
+    .lia-list-wide,.t-data-grid
+    {
+        border-top-color: var(--listBorders) !important; 
+        border-bottom-color: var(--listBorders) !important; 
+        background-color: var(--background3) !important; 
+    }
 
-	ul.Discussions * 
-	{
-		background-color: var(--background2) !important;
-	}
+    .lia-link-navigation::after
+    {
+        color: var(--text) !important;
 
-	ul.Discussions li.Announcement, ul.Discussions li.Announcement *
-	{
-	   background-color: var(--announcement) !important;
-	}
-
-	/* ---------------------------------------------------------------------------*/
-	/* Thread list Rank */
-
-	li.ItemDiscussion.New div.Title a { color: var(--user) !important; font-weight:normal !important; }
-	li.ItemDiscussion.Unread div.Title a { color: var(--user) !important; font-weight:normal !important;}
-	li.ItemDiscussion.Read div.Title a { color: var(--user_read) !important; font-weight:normal !important;}
-
-	li.Rank-Mod.New div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
-	li.Rank-Mod.Unread div.Title a { color: var(--moderator) !important; font-weight:normal !important;}
-	li.Rank-Mod.Read div.Title a { color: var(--moderator_read) !important; font-weight:normal !important;}
-	li.Rank-Mod span.DiscussionAuthor a { color: var(--moderator) !important; }
-
-	li.Rank-Admin.New div.Title a { color: var(--staff) !important; font-weight:normal !important;}
-	li.Rank-Admin.Unread div.Title a { color: var(--staff) !important; font-weight:normal !important;}
-	li.Rank-Admin.Read div.Title a { color: var(--staff_read) !important; font-weight:normal !important;}
-	li.Rank-Admin span.DiscussionAuthor a { color: var(--staff) !important; }
-
-	/*Annoying fix for OculusSupport*/
-	li.ItemDiscussion.New a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
-	li.ItemDiscussion.Unread a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff) !important; }
-	li.ItemDiscussion.Read a[title$="OculusSupport"] ~ div.ItemContent div.Title a { color: var(--staff_read) !important; }
-	li.ItemDiscussion a[title$="OculusSupport"] ~ div.ItemContent span.DiscussionAuthor a { color: var(--staff) !important; }
-
-	/* Options and star */
-	li.ItemDiscussion span.Options *
-	{
-		color: var(--background1) !important;
-		background-color: var(--boxes) !important;
-	}
-	li.ItemDiscussion span.Options a.Bookmarked
-	{
-		background-color: var(--background2) !important;
-	}
-
-	/* ---------------------------------------------------------------------------*/
-	/* Page select */
-	div.Pager * 
-	{ 
-		color: var(--text) !important; 
-		background-color: var(--background2) !important; 
-	}
-	div.Pager a.Highlight 
-	{
-		color: var(--background2) !important; 
-		background-color: var(--text) !important; 
-	}
-
-	/* Search Box */
-	div.SearchBox form * 
-	{
-		color: var(--boxes) !important; 
-		background-color: var(--background2) !important;
-		border-top-color: var(--background2) !important;
-		border-bottom-color: var(--background2) !important;
-		border-left-color: var(--background2) !important;
-		border-right-color: var(--background2) !important;
-	}
-
-
-	/* New Discussion Combobox */
-	div.BoxNewDiscussion * 
-	{
-		color: var(--text) !important; 
-		background-color: var(--background2) !important; 
-	}
-	/* can't replace text color, other style sheet has important tag */
-	div.BoxNewDiscussion ul *
-	{
-		color: var(--text) !important; 
-		background-color: var(--boxes) !important; 
-	}
-
-
-
-
-
-	/* ---------------------------------------------------------------------------*/
-	/* Thread view                                                                */
-	/* ---------------------------------------------------------------------------*/
-	/* First post in a thread */
-	div.ItemDiscussion 
-	{
-		border-left-color:   var(--background3) !important;
-		border-right-color:  var(--background3) !important;
-		border-top-color:    var(--background3) !important;
-		border-bottom-color: var(--background3) !important;
-	}
-    div.ItemDiscussion div.DiscussionHeader, div.ItemDiscussion div.DiscussionHeader *
-	{
-		background-color: var(--background3) !important;
-	}
+    }
+    .lia-component-quilt-header
+    {
+        color: var(--text) !important;
+        background-color: var(--background2) !important; 
+    }
     
-    div.Rank-Mod.ItemDiscussion 
-	{
-		border-left-color:   var(--moderator) !important;
-		border-right-color:  var(--moderator) !important;
-		border-top-color:    var(--moderator) !important;
-		border-bottom-color: var(--moderator) !important;
-	}
+    /* Footer */
+    .lia-quilt-row-footer-bottom
+    {
+        display: none !important;
+    }
+    
+    .custom-community-footer
+    {
+        background-color: var(--background2) !important; 
+    }
 
-	div.Rank-Mod.ItemDiscussion div.DiscussionHeader, div.Rank-Mod.ItemDiscussion div.DiscussionHeader *:not(a), div.Rank-Mod.ItemDiscussion div.DiscussionHeader a.Username
-	{
-		background-color: var(--moderator) !important;
-	}
+    /* User settings menu */
+    .user-navigation-settings-drop-down-inner>ul
+    {
+        background-color: var(--shareButton) !important;
+        color: var(--text) !important;
+    }
 
-	div.Rank-Admin.ItemDiscussion 
-	{
-		border-left-color:   var(--staff) !important;
-		border-right-color:  var(--staff) !important;
-		border-top-color:    var(--staff) !important;
-		border-bottom-color: var(--staff) !important;
-	}
+    
+    /* Badges List */
+    .lia-component-badges-list>div>div>div.lia-decoration-border-content>div>div>div>span
+    {
+        color: var(--text) !important;
+        background-color: var(--background2) !important; 
 
-   	div.Rank-Admin.ItemDiscussion div.DiscussionHeader, div.Rank-Admin.ItemDiscussion div.DiscussionHeader *:not(a), div.Rank-Admin.ItemDiscussion div.DiscussionHeader a.Username
-	{
-		background-color: var(--staff) !important;
-	}
+    }
+    
+    .lia-quilt-row.lia-quilt-row-main>div>div
+    {
+        color: var(--text) !important;
+        background-color: var(--background2) !important; 
+    }
+    
+    .lia-button-Reset-action
+    {
+        border: none !important;
+        color: var(--text) !important;
+        background-color: var(--background4) !important; 
+        
+    }
+/*--------------------------------------------------------------------------------------*/
+/*Board list page*/
+    
+    /*Board titles*/
+    .board-title>a
+    {
+        font-weight: normal !important;
+    }
 
-	/* ---------------------------------------------------------------------------*/
-	/* Comments in a thread */
-	li.ItemComment 
-	{
-		border-left-color:   var(--background3) !important;
-		border-right-color:  var(--background3) !important;
-		border-top-color:    var(--background3) !important;
-		border-bottom-color: var(--background3) !important;
-	}
+    .lia-link-navigation
+    {
+        color: var(--text) !important;
+    }
 
-	li.ItemComment div.CommentHeader, li.ItemComment div.CommentHeader *, li.ItemComment div.Options * 
-	{
-		background-color: var(--background3) !important;
-	}
+    .local-friendly-date, .local-date, .local-time
+    {
+        color: var(--lastPostTime) !important;
 
-	li.Rank-Mod.ItemComment 
-	{
-		border-left-color:   var(--moderator) !important;
-		border-right-color:  var(--moderator) !important;
-		border-top-color:    var(--moderator) !important;
-		border-bottom-color: var(--moderator) !important;
-	}
+    }
+    .messageCountColumn
+    {
+        width: 11% !important;       
+    }
 
-	li.Rank-Mod div.CommentHeader, li.Rank-Mod div.CommentHeader *, li.Rank-Mod div.Options * 
-	{
-		background-color: var(--moderator) !important;
-	}
+    /*Post count on board panel*/
+    .messageCountColumn.lia-data-cell-secondary.lia-data-cell-integer
+    {
+        color: var(--postCount) !important;
+    }
+    .lia-message-count.lia-recent-message-count
+    {
+        font-weight: normal !important;
+        color: var(--postCount) !important;
+    }
+    /*Word "posts" on board panel*/
+    .lia-message-count-label
+    {
+        color: var(--postCount) !important;
+    }
+    
+    .recentMessageTimeColumn 
+    {
+        text-align: right !important;
+    }
+    .custom-community-header-user-navigation
+    {
+        background-color: var(--background2) !important; 
+    }
+    .lia-panel
+    {
+         background-color: var(--background2) !important;
+    }
+    .lia-panel-heading-bar-title
+    {
+        color: var(--text) !important;
 
-	li.Rank-Admin.ItemComment 
-	{
-		border-left-color:   var(--staff) !important;
-		border-right-color:  var(--staff) !important;
-		border-top-color:    var(--staff) !important;
-		border-bottom-color: var(--staff) !important;
-	}
+    }
 
-	li.Rank-Admin div.CommentHeader, li.Rank-Admin div.CommentHeader *, li.Rank-Admin div.Options * 
-	{
-		background-color: var(--staff) !important;
-	}
+    /*Lines between rows in board panel*/
+    tr.lia-list-row>td
+    {
+        border-top-color: var(--listBorders) !important;
+    }
 
-	div.Message img.emoji 
-	{
-		height: 20px !important;
-	}
+    .search-input
+    {
+        color: var(--text) !important; 
+        background-color: var(--background2) !important;  
+    }
 
-	/* ---------------------------------------------------------------------------*/
-	/* Main Page                                                                  */
-	/* ---------------------------------------------------------------------------*/
+    /*Load More button region*/
+    .lia-view-all
+    {
+          background-color: var(--background3) !important;        
+    }
+    
+    
+/*--------------------------------------------------------------------------------------*/
+/* Thread list */
 
-	/* Top nav bar */
-	div.c_Frame-header nav a.Selected 
-	{
-		background-color: var(--background3) !important;
-	}
+    /* "Forum Posts" header */
+    h2
+    {
+        color: var(--text) !important; 
+    }
 
-	/* ---------------------------------------------------------------------------*/
-	/* Thread info */
-	span.MItem 
-	{
-		color: var(--text) !important;
-	}
-	span.MItem.LastCommentBy a
-	{
-		color: white !important;
-	}
-
-	/* Tags */
-	span.MItem.Category a
-	{
-		color: black !important;
-		background-color: var(--boxes) !important;
-	}
-		
-	/* New post box */
-	strong.HasNew, strong.HasNew *
-	{
-		color: black !important;
-		background-color: var(--boxes) !important;
-	}
-	/* ---------------------------------------------------------------------------*/
-
-	/* Side panel Filter */
-	ul.FilterMenu *
-	{
-		background-color: var(--background1) !important;
-		color: var(--boxes) !important;
-	}
-	ul.FilterMenu li.Active *
-	{
-		color: var(--background1) !important;
-		background-color: var(--boxes) !important;
-	}
-	ul.FilterMenu span.Aside *
-	{
-		background-color: var(--boxes) !important;
-		color: var(--background1) !important;
-	}
-
-
-	/* Side panel Categories */
-	ul.PanelInfo *
-	{
-		background-color: var(--background2) !important;
-	}
-	ul.PanelInfo li a
-	{
-		color: var(--text) !important;
-	}
-	ul.PanelInfo span.Aside *
-	{
-		background-color: var(--boxes) !important;
-		color: var(--background1) !important;
-	}
-	ul.PanelInfo li.Active, ul.PanelInfo li.Active *
-	{
-		color: var(--background2) !important;
-		background-color: var(--boxes) !important;
-	}
-	ul.PanelInfo li.Active span.Aside *
-	{
-		background-color: var(--background2) !important;
-		color: var(--text) !important;
-	}
-
-	/* Side panel Tags */
-	div.Box.Tags li * 
-	{
-		color: var(--text) !important;
-		background-color: var(--background2) !important;
-	}
-	div.Box.Tags li span {
-		color: var(--background1) !important;
-		background-color: var(--boxes) !important;
-	}
+    .custom-tile-author-info>strong>a>span
+    {
+        color: var(--normalUser) !important; 
+        font-weight: normal !important;
+    }
+    .custom-tile-author-info>strong>a>span.login-bold
+    {
+        color: var(--boldUser) !important; 
+        font-weight: normal !important;
+    }
 
 
+    .custom-tile-author-info>em
+    {
+        color: var(--normalUser) !important; 
+        font-weight: normal !important;
+    }
 
-	div.Item-Body 
-	{
-		color: #e0e0e0 !important;
-	}
+    /* Background of thread panel */
+    .custom-message-tile
+    {
+        background-color: var(--background3) !important;  
+    }
+    /* Background of pinned thread panel */
+    .custom-thread-floated
+    {
+            background-color: var(--pinnedThread) !important;  
+    }
+    
+    /* Read thread title */
+    .custom-message-tile>div>h3>a
+    {
+        color: var(--readThread) !important; 
+        font-weight: normal !important;
+    }
 
-	div.Signature, div.Signature *
-	{
-		color: #606060 !important;
-		border-top-color: #606060 !important;
-	}
-	div.Item-Body a
-	{
-		color: #10d0d0 !important;
-	}
-	div.Signature a
-	{
-		color: #0C9999 !important;
-		border-top-color: #606060 !important;
-	}
-	/* LOL count */
-	div.Item-Body a.ReactButton-LOL span.Count
-	{
-		background-color: #f0f000 !important;
-		color: black !important;
-	}
-	/* Like count */
-	div.Item-Body a.ReactButton-Like span.Count
-	{
-		background-color: #f0f000 !important;
-		color: black !important;
-	}
-	/* Awesome count */
-	div.Item-Body a.ReactButton-Awesome span.Count
-	{
-		background-color: #f0f000 !important;
-		color: black !important;
-	}
-	/* Flag */
-	div.Item-Body a.ReactButton-Flag *
-	{
-		color: #f00000 !important;
-	}
-	/* Quote */
-	div.Item-Body a.Quote, div.Item-Body a.Quote *
-	{
-		color: var(--text) !important;
-	}
-	/* Log */
-	div.Item-Body a.ReactButton-Log
-	{
-		color: var(--text) !important;
-	}
+    /* Unread thread title */
+    .custom-message-tile.custom-thread-unread>div>h3>a
+    {
+        color: var(--unreadThread) !important; 
+        
+    }
+
+    .custom-message-tile.custom-thread-unread>div>p
+    {
+        color: var(--textLight) !important; 
+        font-weight: normal !important;
+    }
+
+    /* Hide previews of threads */
+    if showPreview == 0
+    {
+        .custom-message-tile>div>p,.custom-message-tile>div>figure
+        {
+            display: none !important;
+        }
+    }
+
+    /* Numbers for views/replies/kudos */
+    .custom-tile-statistics>li>b
+    {
+        color: var(--text) !important;
+    }
+
+    /* Icons for views/replies/kudos */
+    .custom-tile-statistics>li::before
+    {
+        color: var(--threadStats) !important;
+    }
+
+    /* Thread creation time */
+    time
+    {
+        color: var(--threadStats) !important;
+    }
+
+    .custom-tile-category>strong>a
+    {
+        color: var(--textMid) !important;
+    }
+    
+    /* Side panels */
+    .lia-quilt-column-side-content .lia-panel
+    {
+        border: none;
+        background-color: var(--background3) !important;  
+    }
+    .label-count
+    {
+        color: var(--text) !important;
+    }
+    
+    /* Welcome panel */
+    .lia-panel-content>p>a
+    {
+        color: var(--links) !important;
+    }
+
+/*Top Kudos Panel*/
+    span.lia-user-name
+    {
+        color: var(--text) !important;
+    }
+    .kudosCountColumn::before
+    {
+         color: var(--kudosCount) !important;
+        top: -7px !important;
+    }
+    .kudosCountColumn.lia-data-cell-tertiary.lia-data-cell-integer
+    {
+        top: -10px !important;
+        left: 185px !important;
+        color: var(--kudosCount) !important;
+    }
+    .lia-view-all>a
+    {
+        border: none !important;
+        background-color: var(--button) !important;  
+    }
+    .lia-panel-heading-bar-title
+    {
+        background-color: var(--background3) !important;  
+    }
+    
+/*--------------------------------------------------------------------------------------*/
+/*Within Thread*/
+    /*Post border*/
+    .lia-quilt-forum-message
+    {
+        border: none;
+        background-color: var(--background3) !important;  
+    }
+    
+    /* Links inside of a post */
+    .lia-message-body-content>p>a
+    {
+        color: var(--links) !important; 
+    }
+    /* Show or hide signatures */
+    if showSignatures == 1
+    {
+        .UserSignature,.UserSignature>p>span
+        {
+            font-size: 12px !important;
+            background-color: var(--background3) !important;  
+            color: var(--signature) !important; 
+        }
+        .UserSignature>div>a
+        {
+            color: var(--links) !important; 
+        }
+    }
+    else
+    {
+        .UserSignature
+        {
+            display: none !important;
+        }
+    }
+    
+    .lia-component-post-date-last-edited
+    {
+        color: var(--text) !important;      
+    }
+    
+    .lia-message-subject
+    {
+        color: var(--text) !important;        
+    }
+    .lia-button.lia-button-secondary.lia-js-add-this-widget.addthis_button
+    {
+        color: var(--text) !important;
+        background-color: var(--shareButton) !important;    
+        border: none !important;
+    }
+    .lia-button-image-kudos
+    {
+        color: var(--text);
+        background-color: var(--shareButton) !important;   
+        border: none !important;
+    }
+    .MessageKudosCount.lia-component-kudos-widget-message-kudos-count
+    {
+        color: var(--text) !important;
+    }
+    .lia-button-image-kudos-label.lia-component-kudos-widget-kudos-count-label
+    {
+        color: var(--text) !important;
+    }
+    .lia-button-image-kudos-give>a::before
+    {
+        color: var(--text) !important;
+        border-color: var(--background3) !important;
+    }
+    .lia-button-image-kudos-give>a
+    {
+        color: var(--text) !important;
+        border-color: var(--background3) !important;
+    }
+    if stretchToWindow == 1
+    {
+        .lia-quilt-row-main
+        {
+            max-width: none !important;
+        }
+    }
+    
+    /* Page inc/dev */
+    /* Available inc/dec */
+    .lia-paging-page-previous>a,.lia-paging-page-next>a
+    {
+         background-color: var(--background3) !important;   
+         border-color: var(--background2) !important; 
+         color: var(--text) !important;
+    }
+    /* Unavailable inc/dec */
+    .lia-paging-page-previous>span,.lia-paging-page-next>span
+    {
+         background-color: var(--background2) !important;   
+         border-color: var(--background2) !important; 
+         color: var(--text) !important;
+    }
+    
+    .lia-paging-full-pages>li>a
+    {
+         border-color: var(--background2) !important; 
+         background-color: var(--background3) !important; 
+         color: var(--text) !important;
+    }
+    .lia-paging-full-pages>li.lia-paging-page-active>span
+    {
+         border-color: var(--background2) !important; 
+         background-color: var(--blueButton) !important; 
+         color: var(--text) !important;
+    }
+    .lia-paging-page-first>span
+    {
+         border-color: var(--background2) !important; 
+         background-color: var(--blueButton) !important; 
+         color: var(--text) !important;
+    }
+    .lia-paging-page-last>span
+    {
+         border-color: var(--background2) !important; 
+         background-color: var(--blueButton) !important; 
+         color: var(--text) !important;
+    }
+    
+    /* Board link in related thread panel */
+    .lia-list-standard>li>small>a
+    {
+        color: var(--textMid) !important;     
+    }
+    
+    /* Sort thread */
+    .lia-thread-sort-menu>div>div>div>a
+    {
+        background-color: var(--shareButton) !important;
+        color: var(--text) !important;
+    }
+    
+    /* Post popup menu */
+    .lia-menu-dropdown-items,.lia-menu-dropdown-items>li>a
+    {
+        background-color: var(--shareButton) !important;
+        color: var(--text) !important;
+    }
+    .lia-link-disabled
+    {
+        color: var(--textMid) !important;
+    }
+    
+    /* Reply panel */
+    .lia-message-editor>p
+    {
+        background-color: var(--background3) !important;
+        color: var(--test) !important;
+    }
+    
+    .lia-button-Cancel-action
+    {
+        border: none !important;
+        background-color: var(--background4) !important;
+        color: var(--text) !important;
+    }
+    
+    /* Mods and staff */
+    .lia-user-rank-Volunteer-Moderator>a
+    {
+        color: var(--moderator) !important;
+    }
+    .lia-user-rank-Oculus-Community-Manager>a
+    {
+        color: var(--staff) !important;
+    }
+        
+/*--------------------------------------------------------------------------------------*/
+/* Notifications */
+
+    .lia-component-notification-feed
+    {
+        background-color: var(--background2) !important;
+    }
+
+    .lia-component-notification-feed>ul>li
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+        color: var(--text) !important;
+    }
+
+    .lia-component-notification-feed>ul>li>div>div>div>div>a
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+        color: var(--links) !important;
+    }
+    .lia-notification-feed-icon:before
+    {
+        color: var(--text) !important;
+    }
 
 
-	/* Quote boxes */
-	blockquote, blockquote *
-	{
-		background-color: #102030 !important;
-	}
-	blockquote blockquote, blockquote blockquote *
-	{
-		background-color: #1A334C !important;
-	}
-	blockquote blockquote blockquote, blockquote blockquote blockquote *
-	{
-		background-color: #244668 !important;
-	}
 
-	div.Quote 
-	{
-		border-style: solid;
-		border-width: 1px;
-		border-color: #1A334C !important;
-		background-color: #102030 !important;
-	}
+/*--------------------------------------------------------------------------------------*/
+/* Home Page */
 
-	pre.CodeBlock
-	{
-		border-style: solid;
-		border-width: 1px;
-		border-color: #1A334C !important;
-		background-color: #102030 !important;
-	}
-	pre.CodeBlock *
-	{
-		background-color: #102030 !important;
-	}
-	div.Spoiler
-	{
-		background-color: #402030 !important;
-	}
+    /* Trending topics left panel */
+    .custom-trending-topics>section>div>p
+    {
+        color: var(--text) !important;
+    }
+    
+    /* Trending topics right panel */
+    .custom-trending-topics>section>div>ul>li>h3>a,.custom-trending-topics>section>div>ul>li>span,.custom-trending-topics>section>div>ul>li>strong>a
+    {
+        color: var(--text) !important;
+    }
+    .custom-trending-topics>section>div>ul>li
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+    }
 
-	h1 
-	{
-		color: var(--textheading) !important;
-	}
+    .hero-right-content>div
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+    }
 
-	/* Community Combobox */
-	aaadiv.c_CommunityToggle * 
-	{
-		color: #ff0000 !important; 
-		background-color: var(--boxes) !important;
-	}
+    .custom-profile-statistics>h2:before,.custom-profile-notifications>section>h2:before
+    {
+        color: var(--text) !important;
+    }
 
-	/* Avatars */
-	img.ProfilePhotoMedium
-	{
-		width: 60px !important;   
-		height: 60px !important;   
-		z-index: 1 !important;
-		position: relative;
-	}
+/*--------------------------------------------------------------------------------------*/
+/* Help Page */
 
-	iframe
-	{
-		background-color: var(--user_read) !important;
-	}
+    .lia-faq-sections-top
+    {
+        background-color: var(--background3) !important;
+        color: var(--text) !important;
+        border: none !important;
+    }
+
+    .lia-faq-section-title
+    {
+        background-color: var(--background3) !important;
+        color: var(--text) !important;
+        border-color: var(--text) !important;
+    }
+
+    .lia-faq-section-title:before
+    {
+        background-color: var(--text) !important;
+    }
+
+
+/*--------------------------------------------------------------------------------------*/
+/* Header */
+    .lia-quilt-row-header-top,.lia-quilt-row-header-top>div
+    {
+        background-color: var(--background2) !important;
+    }
+
+
+/*--------------------------------------------------------------------------------------*/
+/* Kudos Leaderboard */
+    .KudosUserTab>div>div>.lia-decoration-border-content>div>div>div>.lia-panel-heading-bar-title
+    {
+        background-color: var(--background2) !important;
+        color: var(--text) !important;
+    }
+    .UserSearchItemContainer>div
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+        color: var(--text) !important;
+    }
+    .base-count-text:before,.base-count-number
+    {
+        color: var(--kudosCount) !important;
+    }
+    .lia-user-rank
+    {
+        color: var(--textLight) !important;
+    }
+    .lia-component-user-position
+    {
+        color: var(--kudosCount) !important;
+    }
+    .lia-component-user-position:before
+    {
+        display: none !important;
+    }
+        
+    .TimeRangeSelector>ul>li>.lia-link-disabled
+    {
+        color: var(--text) !important;
+        background-color: var(--blueButton) !important;
+    }
+        
+        
+        
 }
