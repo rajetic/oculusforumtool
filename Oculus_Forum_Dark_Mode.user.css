@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Oculus Forum Dark Mode
-@namespace      Kojack
-@version        0.2.0
+@namespace      OculusForum
+@version        0.2.1
 @description    Dark theme for the Khoros based Oculus community forums.
 @homepageURL https://github.com/rajetic/oculusforumtool
 @updateURL   https://github.com/rajetic/oculusforumtool/raw/master/Oculus_Forum_Dark_Mode.user.css
@@ -335,7 +335,7 @@
 /*--------------------------------------------------------------------------------------*/
 /*Within Thread*/
     /*Post border*/
-    .lia-quilt-forum-message
+    .lia-quilt-forum-message,.lia-message-body>.lia-message-body-content
     {
         border: none;
         background-color: var(--background3) !important;  
@@ -630,6 +630,125 @@
         background-color: var(--blueButton) !important;
     }
         
+/*--------------------------------------------------------------------------------------*/
+/* Search */
+
+    .lia-quilt-row.lia-quilt-row-main
+    {
+        background-color: var(--background2) !important;
+    }
+
+/*    .lia-quilt-column-alley.lia-quilt-column-alley-single
+    {
+        background-color: var(--background3) !important;
+    }
+*/
+    .lia-message-view-wrapper,.lia-truncated-body-container,.lia-quilt-column-alley.lia-quilt-column-alley-single>.lia-message-body-wrapper.lia-component-message-view-widget-body
+    {
+        background-color: var(--background3) !important;
+    }
+
+    .lia-message-view-message-search-item
+    {
+        border-color: var(--background2) !important;
+        border-bottom-width: 4px !important;
+    }
+    
+    .lia-truncated-body-container
+    {
+        color: var(--textLight) !important;
+    }
+
+    .lia-truncated-body-container>span
+    {
+        color: var(--test) !important;
+    }
+    
+    .message-subject>span>a>span
+    {
+        color: var(--test) !important;
+    }
+
+    .lia-quilt-search-page-thread-filters
+    {
+         background-color: var(--background2) !important;
+         color: var(--test) !important;
+    }
+
+    .lia-quilt-column-main-content>div>li>div>a
+    {
+        background-color: var(--background2) !important;
+         color: var(--test) !important;
+    }
+    
+    .lia-collapsible-panel-body>div
+    {
+        background-color: var(--background4) !important;
+         color: var(--test) !important;
+    }
+    .type-filter-alternative
+    {
+        background-color: var(--background4) !important;
+         color: var(--text) !important;
+    }
+    .SearchToggleFieldFilter
+    {
+        color: var(--text) !important;
+    }
+    .SearchToggleFieldFilter>div.disabled
+    {
+        color: var(--textMid) !important;
+    }
+    .lia-search-filter-bread-crumb-link
+    {
+        background-color: var(--blueButton) !important;
+    }
+    .lia-component-search-widget-search-filter-bread-crumb>.lia-panel-feedback-inline-note>div>div>div
+    {
+        background-color: var(--background2) !important;
         
+    }
+    .lia-quilt-column-alley.lia-quilt-column-alley-single>.lia-component-message-view-widget-body
+    {
+        background-color: var(--background2) !important;
         
+    }
+    .lia-component-search-widget-search-filter-bread-crumb,.lia-component-quilt-search-page-thread-filters
+    {
+            border: none !important;
+    }
+    .lia-common-dropdown-toggle
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+        color: var(--text) !important;
+    }
+    .lia-common-dropdown-menu.dropdown-menu
+    {
+        background-color: var(--background4) !important;
+        border: none !important;
+    }
+    .lia-tabs-standard
+    {
+        background-color: var(--background3) !important;
+        border: none !important;
+    }
+    .lia-panel-feedback-inline-note,.lia-component-search-widget-spellcheck
+    {
+        background-color: var(--background2) !important;
+    }
+    .lia-autocomplete-container
+    {
+        background-color: var(--background3) !important;
+        
+    }
+    .lia-autocomplete-message-item.selected
+    {
+        background-color: var(--background4) !important;
+    }
+    .lia-search-match-lithium
+    {
+        color: var(--test) !important;
+    }
+
 }
