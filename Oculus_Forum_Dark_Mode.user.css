@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Oculus Forum Dark Mode
 @namespace      OculusForum
-@version        0.2.1
+@version        0.2.2
 @description    Dark theme for the Khoros based Oculus community forums.
 @homepageURL https://github.com/rajetic/oculusforumtool
 @updateURL   https://github.com/rajetic/oculusforumtool/raw/master/Oculus_Forum_Dark_Mode.user.css
@@ -377,12 +377,24 @@
     {
         color: var(--text) !important;        
     }
+    
+    /* Share button */
     .lia-button.lia-button-secondary.lia-js-add-this-widget.addthis_button
     {
         color: var(--text) !important;
         background-color: var(--shareButton) !important;    
         border: none !important;
     }
+    
+    /* Accept solution button */
+    .lia-button.lia-button-secondary.lia-link-ticket-post-action
+    {
+        color: var(--text) !important;
+        background-color: var(--shareButton) !important;    
+        border: none !important;
+    }
+    
+    /* Kudos button */
     .lia-button-image-kudos
     {
         color: var(--text);
@@ -397,6 +409,8 @@
     {
         color: var(--text) !important;
     }
+    
+    
     .lia-button-image-kudos-give>a::before
     {
         color: var(--text) !important;
