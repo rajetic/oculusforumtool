@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Oculus Forum Dark Mode
 @namespace      OculusForum
-@version        0.2.2
+@version        0.2.3
 @description    Dark theme for the Khoros based Oculus community forums.
 @homepageURL https://github.com/rajetic/oculusforumtool
 @updateURL   https://github.com/rajetic/oculusforumtool/raw/master/Oculus_Forum_Dark_Mode.user.css
@@ -198,7 +198,53 @@
           background-color: var(--background3) !important;        
     }
     
-    
+/* Moderation */
+    .lia-node-icon,
+    {
+        color: var(--text) !important; 
+    }
+    .lia-list-tree-toggle
+    {
+        background-color: var(--text) !important; 
+    }
+    .lia-fa-help
+    {
+        color: var(--text) !important; 
+    }
+    .ModeratorControlsTaplet>ul>li>a
+    {
+        background-color: var(--background1) !important;    
+    }
+    .custom-profile-activity-posts a
+    {
+        color: var(--links) !important; 
+    }
+    .custom-profile-activity-posts div
+    {
+        color: var(--text) !important; 
+    }
+    .custom-profile-activity-posts time
+    {
+        color: var(--text) !important; 
+    }
+    .ui-dialog
+    {
+        background-color: var(--background3) !important;
+        
+    }
+    .lia-form-type-text
+    {
+        background-color: var(--background1) !important;
+        color: var(--text) !important; 
+    }
+    .lia-fieldset-title
+    {
+        color: var(--text) !important; 
+    }
+    .lia-table-head th
+    {
+        color: var(--text) !important;
+    }
 /*--------------------------------------------------------------------------------------*/
 /* Thread list */
 
@@ -219,6 +265,7 @@
         font-weight: normal !important;
     }
 
+    
 
     .custom-tile-author-info>em
     {
@@ -230,11 +277,16 @@
     .custom-message-tile
     {
         background-color: var(--background3) !important;  
+        border-bottom: 2px solid var(--background1) !important;
     }
     /* Background of pinned thread panel */
     .custom-thread-floated
     {
-            background-color: var(--pinnedThread) !important;  
+        background-color: var(--pinnedThread) !important;  
+    }
+    .custom-thread-floated ::before
+    {
+    color: var(--textMid) !important;  
     }
     
     /* Read thread title */
@@ -283,7 +335,26 @@
     {
         color: var(--threadStats) !important;
     }
-
+    
+    /* Padding around thread */
+    .custom-message-tile
+    {
+        padding: 0px !important;
+    }
+    
+    .custom-message-tile>footer>div>a
+    {
+        position: absolute !important;
+        left: -50px !important;
+        top: 18px !important;
+        color: var(--test) !important;
+        
+    }
+    .custom-message-tile>div
+    {
+        order: 1 !important;
+    }
+    
     .custom-tile-category>strong>a
     {
         color: var(--textMid) !important;
@@ -316,6 +387,11 @@
          color: var(--kudosCount) !important;
         top: -7px !important;
     }
+    .lia-user-avatar-message
+    {
+        position: relative !important;
+        top: -11px !important;
+    }
     .kudosCountColumn.lia-data-cell-tertiary.lia-data-cell-integer
     {
         top: -10px !important;
@@ -342,7 +418,12 @@
     }
     
     /* Links inside of a post */
-    .lia-message-body-content>p>a
+    .lia-message-body-content a
+    {
+        color: var(--links) !important; 
+    }
+    /* In editor panel */
+    .lia-message-editor a
     {
         color: var(--links) !important; 
     }
@@ -425,7 +506,7 @@
     {
         .lia-quilt-row-main
         {
-            max-width: none !important;
+            max-width: calc(100% - 90px) !important;
         }
     }
     
@@ -495,12 +576,20 @@
     }
     
     /* Reply panel */
+/*
     .lia-message-editor>p
     {
         background-color: var(--background3) !important;
         color: var(--test) !important;
+    }*/
+    .lia-tinymce-html>body
+    {
+        background-color: var(--background3) !important;
     }
-    
+    .lia-mention-container-editor-user
+    {
+        color: var(--links) !important;
+    }
     .lia-button-Cancel-action
     {
         border: none !important;
@@ -576,7 +665,20 @@
     {
         color: var(--text) !important;
     }
-
+    
+    .custom-profile-notifications>section>ul>li>a
+    {
+        color: var(--links) !important;
+    }
+    .custom-profile-notifications>section>ul>li>time
+    {
+        color: var(--text) !important;
+    }
+    
+    .custom-getting-started a
+    {
+        color: var(--links) !important;
+    }
 /*--------------------------------------------------------------------------------------*/
 /* Help Page */
 
@@ -742,7 +844,7 @@
         background-color: var(--background4) !important;
         border: none !important;
     }
-    .lia-tabs-standard
+    .lia-tabs-standard 
     {
         background-color: var(--background3) !important;
         border: none !important;
